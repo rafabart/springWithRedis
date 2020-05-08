@@ -4,15 +4,10 @@ import com.springWithRedis.entity.Company;
 import com.springWithRedis.repository.CompanyRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
@@ -23,16 +18,6 @@ public class CompanyService {
 
     @Autowired
     private CompanyRepository companyRepository;
-
-    @Autowired
-    private CacheManager cacheManager;
-//
-//    @PostConstruct
-//    public void clearCache() {
-//        cacheManager.getCacheNames()
-//                .parallelStream()
-//                .forEach(n -> cacheManager.getCache(n).clear());
-//    }
 
 
     /*
